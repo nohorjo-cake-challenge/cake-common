@@ -20,8 +20,7 @@ export function validateYumFactor(factor: number): boolean {
 
 export function validateCake(cake: ICake): boolean {
   return !!(
-    typeof cake.id === 'number'
-    && cake.imageUrl
+    cake.imageUrl
     && validateCakeName(cake.name)
     && validateCakeComment(cake.comment)
     && validateYumFactor(cake.yumFactor)

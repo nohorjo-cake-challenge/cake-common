@@ -73,15 +73,6 @@ describe('validateYumFactor', () => {
 });
 
 describe('validateCake', () => {
-  it('should return false for no id', () => {
-    expect(validateCake({
-      imageUrl: 'url',
-      name: 'name',
-      comment: 'comment',
-      yumFactor: 3,
-    } as ICake)).toBe(false);
-  });
-
   it('should return false for no imageUrl', () => {
     expect(validateCake({
       id: 0,
