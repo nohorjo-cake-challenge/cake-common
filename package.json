@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/nohorjo-cake-challenge/cake-common#readme",
   "devDependencies": {
+    "@types/is-url": "^1.2.30",
     "@types/jest": "^27.0.1",
     "jest": "^27.0.6",
     "ts-jest": "^27.0.5",
     "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "is-url": "1.2.4"
   }
 }

@@ -1,3 +1,5 @@
+import isUrl from 'is-url';
+
 export interface ICake {
   id: number;
   name: string;
@@ -18,9 +20,13 @@ export function validateYumFactor(factor: number): boolean {
   return factor > 0 && factor <= 5;
 }
 
-export function validateCake(cake: ICake): boolean {
+export function validateImageUrl(url: string): boolean {
+  return isUrl(url);
+}
+
+export function validateCake(cake: Omit<ICake, 'id'>): boolean {
   return !!(
-    cake.imageUrl
+    validateImageUrl(cake.imageUrl)
     && validateCakeName(cake.name)
     && validateCakeComment(cake.comment)
     && validateYumFactor(cake.yumFactor)

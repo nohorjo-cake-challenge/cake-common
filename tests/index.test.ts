@@ -3,6 +3,7 @@ import {
   validateCakeName,
   validateCakeComment,
   validateYumFactor,
+  validateImageUrl,
   validateCake,
 } from '..';
 
@@ -72,6 +73,20 @@ describe('validateYumFactor', () => {
   });
 });
 
+describe('validateImageUrl', () => {
+  it('should return false for empty', () => {
+    expect(validateImageUrl('')).toBe(false);
+  });
+
+  it('should return false for invalid', () => {
+    expect(validateImageUrl('blahblah')).toBe(false);
+  });
+
+  it('should return true for valid', () => {
+    expect(validateImageUrl('http://example.com')).toBe(true);
+  });
+});
+
 describe('validateCake', () => {
   it('should return false for no imageUrl', () => {
     expect(validateCake({
@@ -85,7 +100,7 @@ describe('validateCake', () => {
   it('should return false for no name', () => {
     expect(validateCake({
       id: 0,
-      imageUrl: 'url',
+      imageUrl: 'http://example.com',
       comment: 'comment',
       yumFactor: 3,
     } as ICake)).toBe(false);
@@ -94,7 +109,7 @@ describe('validateCake', () => {
   it('should return false for no comment', () => {
     expect(validateCake({
       id: 0,
-      imageUrl: 'url',
+      imageUrl: 'http://example.com',
       name: 'name',
       yumFactor: 3,
     } as ICake)).toBe(false);
@@ -103,7 +118,7 @@ describe('validateCake', () => {
   it('should return false for no yumFactor', () => {
     expect(validateCake({
       id: 0,
-      imageUrl: 'url',
+      imageUrl: 'http://example.com',
       name: 'name',
       comment: 'comment',
     } as ICake)).toBe(false);
@@ -112,7 +127,7 @@ describe('validateCake', () => {
   it('should return true for valid cake', () => {
     expect(validateCake({
       id: 0,
-      imageUrl: 'url',
+      imageUrl: 'http://example.com',
       name: 'name',
       comment: 'comment',
       yumFactor: 3,
